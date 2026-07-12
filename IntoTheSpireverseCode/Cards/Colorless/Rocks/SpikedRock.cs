@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.ValueProps;
 using IntoTheSpireverse.IntoTheSpireverseCode.Powers.ShadowIronclad;
+using MegaCrit.Sts2.Core.Audio.Debug;
 
 namespace IntoTheSpireverse.IntoTheSpireverseCode.Cards.Colorless.Rocks;
 
@@ -32,7 +33,7 @@ public sealed class SpikedRock() : RockCardBase(0, CardType.Attack, CardRarity.T
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_rock_shatter", tmpSfx: "blunt_attack.mp3")
+            .WithHitFx(VfxCmd.rockShatterPath, tmpSfx: TmpSfx.bluntAttack)
             .Execute(choiceContext);
         await PowerCmd.Apply<RetaliationPower>(
             new ThrowingPlayerChoiceContext(),

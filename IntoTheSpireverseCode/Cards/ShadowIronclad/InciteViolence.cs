@@ -31,7 +31,7 @@ public sealed class InciteViolence() : ShadowIroncladCard(1, CardType.Attack, Ca
             .WithHitCount(DynamicVars.Repeat.IntValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         if (cardPlay.Target?.IsDead != false || cardPlay.Target.Monster == null)
@@ -42,7 +42,7 @@ public sealed class InciteViolence() : ShadowIroncladCard(1, CardType.Attack, Ca
             .FromMonsterSingleTarget(cardPlay.Target.Monster)
             .Targeting(Owner.Creature)
             .WithNoAttackerAnim()
-            .WithHitFx("vfx/vfx_attack_blunt")
+            .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);
         InciteViolencePatch.IsIncitedAttack = false;
 

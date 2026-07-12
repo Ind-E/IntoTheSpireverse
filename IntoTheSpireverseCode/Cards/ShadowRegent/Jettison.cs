@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using IntoTheSpireverse.IntoTheSpireverseCode.CardPiles;
 using IntoTheSpireverse.IntoTheSpireverseCode.Keywords;
+using MegaCrit.Sts2.Core.Audio.Debug;
 
 namespace IntoTheSpireverse.IntoTheSpireverseCode.Cards.ShadowRegent;
 
@@ -47,7 +48,7 @@ public class Jettison() : ShadowRegentCard(2,
                 .WithHitCount(cargoedCards.Count)
                 .FromCardCompatibility(this, cardPlay)
                 .Targeting(cardPlay.Target)
-                .WithHitFx("vfx/vfx_starry_impact", null, "slash_attack.mp3")
+                .WithHitFx(VfxCmd.starryImpactVfx, null, TmpSfx.slashAttack)
                 .Execute(choiceContext);
         }
     }

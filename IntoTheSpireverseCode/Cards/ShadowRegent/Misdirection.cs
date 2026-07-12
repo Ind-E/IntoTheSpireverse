@@ -36,7 +36,7 @@ public class Misdirection() : ShadowRegentCard(
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
         
         var cargoPile = CargoCardPile.CargoPileType.GetPile(Owner);
