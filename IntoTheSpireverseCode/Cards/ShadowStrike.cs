@@ -50,7 +50,7 @@ public sealed class ShadowStrike : ShadowDefectCard
 				.WithHitCount(discarded)
 				.FromCardCompatibility(this, cardPlay)
 				.TargetingRandomOpponents(base.CombatState)
-				.WithHitFx("vfx/vfx_attack_slash")
+				.WithHitFx(VfxCmd.slashPath)
 				.Execute(choiceContext);
 		}
 	}

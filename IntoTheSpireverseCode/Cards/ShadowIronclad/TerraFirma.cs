@@ -1,4 +1,5 @@
-﻿using BaseLib.Extensions;
+﻿using MegaCrit.Sts2.Core.Animation;
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -26,7 +27,7 @@ public sealed class TerraFirma() : ShadowIroncladCard(1, CardType.Skill, CardRar
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<SlatePower>(
             new ThrowingPlayerChoiceContext(),
             Owner.Creature, DynamicVars.Power<SlatePower>().BaseValue,

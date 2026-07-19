@@ -1,4 +1,5 @@
-﻿using BaseLib.Abstracts;
+﻿using MegaCrit.Sts2.Core.Animation;
+using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -33,7 +34,7 @@ public class TrialOfOne() : ShadowRegentCard(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast",
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger,
             Owner.Character.CastAnimDelay);
 
         await PowerCmd.Apply<TrialOfOnePower>(new ThrowingPlayerChoiceContext(),

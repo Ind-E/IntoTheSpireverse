@@ -27,7 +27,7 @@ public sealed class ClarionStrike() : ShadowDefectCard(1, CardType.Attack, CardR
             .Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target!)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         await PowerCmd.Apply<ClarionStrikePower>(new ThrowingPlayerChoiceContext(), Owner.Creature, 1m, Owner.Creature, this);

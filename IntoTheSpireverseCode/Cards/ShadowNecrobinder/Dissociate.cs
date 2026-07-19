@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -24,7 +25,7 @@ public sealed class Dissociate() : ShadowNecrobinderCard(1, CardType.Skill, Card
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         var card = (await CardSelectCmd.FromSimpleGrid(choiceContext,
                 PileType.Draw.GetPile(Owner).Cards

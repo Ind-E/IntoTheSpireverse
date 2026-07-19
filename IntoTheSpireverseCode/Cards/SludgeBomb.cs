@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Audio.Debug;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,7 +49,7 @@ public sealed class SludgeBomb : ShadowDefectCard
 
 		await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue).FromCardCompatibility(this, cardPlay)
 			.TargetingAllOpponents(base.CombatState)
-			.WithHitFx("vfx/vfx_attack_blunt", null, "blunt_attack.mp3")
+			.WithHitFx(VfxCmd.bluntPath, null, TmpSfx.bluntAttack)
 			.Execute(choiceContext);
 	}
 

@@ -22,7 +22,7 @@ public sealed class Wreck() : ShadowDefectCard(3, CardType.Attack, CardRarity.Un
             .Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         int orbCount = Owner.PlayerCombatState!.OrbQueue.Orbs.Count;

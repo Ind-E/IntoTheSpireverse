@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using MegaCrit.Sts2.Core.Audio.Debug;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -34,7 +35,7 @@ public sealed class TectonicShift() : ShadowIroncladCard(2, CardType.Attack, Car
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_rock_shatter", tmpSfx: "blunt_attack.mp3")
+            .WithHitFx(VfxCmd.rockShatterPath, tmpSfx: TmpSfx.bluntAttack)
             .Execute(choiceContext);
         foreach (var original in PileType.Hand.GetPile(Owner).Cards
                      .Where(c => c.IsTransformable)

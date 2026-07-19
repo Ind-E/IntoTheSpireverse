@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -26,7 +27,7 @@ public sealed class Oblation() : ShadowNecrobinderCard(0, CardType.Skill, CardRa
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         var drawPile = PileType.Draw.GetPile(Owner).Cards
             .OrderBy(c => c.Rarity)
             .ThenBy(c => c.Id)

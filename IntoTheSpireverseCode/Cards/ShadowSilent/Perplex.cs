@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Animation;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -23,7 +24,7 @@ public sealed class Perplex() : ShadowSilentCard(1, CardType.Skill, CardRarity.R
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         IEnumerable<CardModel> cardToPerplex = await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, new CardSelectorPrefs(SelectionScreenPrompt, 1), CanEnchant);
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         foreach (CardModel cardModel in cardToPerplex)
         {
             CardCmd.Enchant<Slither>(cardModel, 1M);

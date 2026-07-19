@@ -33,7 +33,7 @@ public sealed class Poke() : ShadowDefectCard(1, CardType.Skill, CardRarity.Comm
             .Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         // Draw 1 (2) cards

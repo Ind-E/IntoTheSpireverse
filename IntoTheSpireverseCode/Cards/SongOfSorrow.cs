@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Animation;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.JavaScript;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ public sealed class SongOfSorrow : ShadowDefectCard
 
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
-		await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
+		await CreatureCmd.TriggerAnim(base.Owner.Creature, CreatureAnimator.castTrigger, base.Owner.Character.CastAnimDelay);
 		await PowerCmd.Apply<SongOfSorrowPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars.Damage.BaseValue, base.Owner.Creature, this);
 	}
 

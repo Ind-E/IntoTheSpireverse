@@ -1,4 +1,5 @@
-﻿using BaseLib.Abstracts;
+﻿using MegaCrit.Sts2.Core.Animation;
+using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -18,7 +19,7 @@ public sealed class Decay() : ShadowDefectCard(1, CardType.Skill, CardRarity.Bas
     {
         var source = this;
         
-        await CreatureCmd.TriggerAnim(source.Owner.Creature, "Cast", source.Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(source.Owner.Creature, CreatureAnimator.castTrigger, source.Owner.Character.CastAnimDelay);
         await OrbCmd.Channel<EntropyOrb>(choiceContext, source.Owner);
         await CycleCmd.Cycle(choiceContext, source.Owner);
     }

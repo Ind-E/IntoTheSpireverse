@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Animation;
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -39,7 +40,7 @@ public sealed class CobrasFlask() : ShadowSilentCard(2, CardType.Skill, CardRari
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         Vector2 lastPos = NCombatRoom.Instance.GetCreatureNode(Owner.Creature).VfxSpawnPosition;
         await IntoTheSpireverseKeywords.ExecuteDevious(choiceContext, Owner, this, async() =>
         {

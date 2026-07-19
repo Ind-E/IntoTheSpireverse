@@ -29,7 +29,7 @@ public sealed class Handclap() : ShadowNecrobinderCard(2, CardType.Attack, CardR
         var attack = DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .WithHitCount(DynamicVars.Repeat.IntValue)
             .FromCardCompatibility(this, cardPlay)
-            .WithHitFx("vfx/vfx_attack_blunt");
+            .WithHitFx(VfxCmd.bluntPath);
 
         if (HasEnoughCurses)
             await attack.TargetingAllOpponents(CombatState).Execute(choiceContext);

@@ -32,7 +32,7 @@ public sealed class Brainshock() : ShadowDefectCard(1, CardType.Attack, CardRari
             .Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(

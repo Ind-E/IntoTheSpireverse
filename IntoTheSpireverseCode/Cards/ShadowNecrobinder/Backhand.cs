@@ -21,7 +21,7 @@ public sealed class Backhand() : ShadowNecrobinderCard(0, CardType.Attack, CardR
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_blunt")
+            .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);
     }
 

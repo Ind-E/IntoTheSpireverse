@@ -37,7 +37,7 @@ public sealed class Deathglare() : CustomCardModel(0, CardType.Attack, CardRarit
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
     }
 

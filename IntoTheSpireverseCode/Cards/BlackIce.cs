@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -23,7 +24,7 @@ public class BlackIce() : ShadowDefectCard(1, CardType.Power, CardRarity.Uncommo
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(base.Owner.Creature, CreatureAnimator.castTrigger, base.Owner.Character.CastAnimDelay);
         await OrbCmd.Channel<DarkOrb>(choiceContext, Owner);
         await PowerCmd.Apply<BlackIcePower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature,DynamicVars[nameof(BlackIcePower)].BaseValue, base.Owner.Creature, this);
     }

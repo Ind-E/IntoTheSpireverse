@@ -1,4 +1,5 @@
-﻿using BaseLib.Abstracts;
+﻿using MegaCrit.Sts2.Core.Animation;
+using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using IntoTheSpireverse.IntoTheSpireverseCode.Extensions;
 using IntoTheSpireverse.IntoTheSpireverseCode.Powers;
@@ -34,7 +35,7 @@ public class IceBeam() : ShadowRegentCard(1,
     {
         if (CombatState == null || play.Target == null) return;
 
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         
         await PowerCmd.Apply<WeakPower>(
             new ThrowingPlayerChoiceContext(),play.Target, DynamicVars.Weak.BaseValue,

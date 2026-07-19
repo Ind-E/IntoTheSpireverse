@@ -1,4 +1,5 @@
-﻿using BaseLib.Extensions;
+﻿using MegaCrit.Sts2.Core.Animation;
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
@@ -37,7 +38,7 @@ public sealed class MomentOfClarity() : ShadowSilentCard(1, CardType.Skill, Card
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         int cost = EnergyCost.GetWithModifiers(CostModifiers.All);
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         await PlayerCmd.GainEnergy(
             DynamicVars.Energy.IntValue*cost, Owner);
     }

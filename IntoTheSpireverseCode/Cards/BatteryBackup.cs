@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Animation;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
@@ -30,7 +31,7 @@ public sealed class BatteryBackup : ShadowDefectCard
 
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
-		await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
+		await CreatureCmd.TriggerAnim(base.Owner.Creature, CreatureAnimator.castTrigger, base.Owner.Character.CastAnimDelay);
 
 		// TODO: confirm the property name for max energy per turn on Owner or PlayerCombatState
 		int maxEnergy = base.Owner.MaxEnergy;

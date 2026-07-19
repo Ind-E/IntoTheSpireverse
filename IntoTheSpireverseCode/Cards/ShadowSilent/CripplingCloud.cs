@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using MegaCrit.Sts2.Core.Animation;
+using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -36,7 +37,7 @@ public sealed class CripplingCloud() : ShadowSilentCard(2, CardType.Skill, CardR
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         this.SpawnVfx();
         await Cmd.CustomScaledWait(0.2f, 0.4f);
         foreach (Creature hittableEnemy in CombatState.HittableEnemies)

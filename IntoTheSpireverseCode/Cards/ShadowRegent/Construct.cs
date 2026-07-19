@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Animation;
 using BaseLib.Abstracts;
 using IntoTheSpireverse.IntoTheSpireverseCode.CardPiles;
 using IntoTheSpireverse.IntoTheSpireverseCode.Cards.Colorless;
@@ -35,7 +36,7 @@ public class Construct() : ShadowRegentCard(
         CardPlay play)
     {
         if (CombatState == null) return;
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast",
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger,
             Owner.Character.CastAnimDelay);
 
         var driveCard = CombatState.CreateCard<Hyperdrive>(Owner);

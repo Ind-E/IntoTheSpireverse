@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Animation;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ public sealed class Altar : ShadowDefectCard
 
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
-		await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
+		await CreatureCmd.TriggerAnim(base.Owner.Creature, CreatureAnimator.castTrigger, base.Owner.Character.CastAnimDelay);
 
 		CardModel? selected = (await CardSelectCmd.FromHand(
 			context: choiceContext,

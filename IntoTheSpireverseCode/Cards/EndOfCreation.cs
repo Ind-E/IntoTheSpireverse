@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Animation;
 using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -24,11 +25,11 @@ public sealed class EndOfCreation() : ShadowDefectCard(2, CardType.Attack, CardR
         await DamageCmd
             .Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .TargetingAllOpponents(CombatState)
             .Execute(choiceContext);
 
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         await OrbCmd.Channel<EntropyOrb>(choiceContext, Owner);
         await OrbCmd.Channel<EntropyOrb>(choiceContext, Owner);
     }

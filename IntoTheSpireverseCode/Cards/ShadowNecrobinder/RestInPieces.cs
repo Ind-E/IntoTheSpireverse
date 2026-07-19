@@ -47,7 +47,7 @@ public sealed class RestInPieces() : ShadowNecrobinderCard(1, CardType.Attack, C
             .WithHitCount(DynamicVars.Repeat.IntValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
     }
 

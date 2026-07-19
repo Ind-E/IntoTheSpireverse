@@ -26,7 +26,7 @@ public sealed class PhasicStrike() : ShadowDefectCard(1, CardType.Attack, CardRa
             .Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         var rightmostOrb = Owner.PlayerCombatState!.OrbQueue.Orbs.FirstOrDefault();

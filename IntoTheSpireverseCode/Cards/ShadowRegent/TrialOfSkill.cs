@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Animation;
 using BaseLib.Abstracts;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
@@ -34,7 +35,7 @@ public class TrialOfSkill() : ShadowRegentCard(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast",
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger,
             Owner.Character.CastAnimDelay);
 
         if (IsUpgraded)

@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using MegaCrit.Sts2.Core.Audio.Debug;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -42,7 +43,7 @@ public class Overdrive() : ShadowRegentCard(
         await DamageCmd.Attack(DynamicVars.CalculatedDamage)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_blunt", null, "heavy_attack.mp3")
+            .WithHitFx(VfxCmd.bluntPath, null, TmpSfx.heavyAttack)
             .Execute(choiceContext);
     }
 

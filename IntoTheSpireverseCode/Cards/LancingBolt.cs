@@ -27,7 +27,7 @@ public sealed class LancingBolt() : ShadowDefectCard(1, CardType.Attack, CardRar
             .Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
        await CycleCmd.Cycle(choiceContext, Owner);

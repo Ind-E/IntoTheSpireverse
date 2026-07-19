@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Extensions;
@@ -29,7 +30,7 @@ public sealed class BlastFromThePast() : ShadowNecrobinderCard(0, CardType.Skill
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (CombatState == null) return;
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
 
         var winningDeckCards = GetLastWinningRunCards();
         if (winningDeckCards == null || winningDeckCards.Count == 0) return;

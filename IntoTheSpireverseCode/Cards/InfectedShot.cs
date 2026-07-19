@@ -29,7 +29,7 @@ public sealed class InfectedShot() : ShadowDefectCard(0, CardType.Attack, CardRa
             .Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         await PowerCmd.Apply<InfectedShotPower>(new ThrowingPlayerChoiceContext(), cardPlay.Target, DynamicVars["PowerAmount"].BaseValue, Owner.Creature, this);

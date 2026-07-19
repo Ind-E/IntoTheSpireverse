@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using MegaCrit.Sts2.Core.Animation;
+using BaseLib.Utils;
 using IntoTheSpireverse.IntoTheSpireverseCode.CardTags;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -22,7 +23,7 @@ public sealed class Reptomancy() : ShadowSilentCard(0, CardType.Skill, CardRarit
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         List<CardModel> list = PileType.Hand.GetPile(Owner).Cards.Where((c => c != null && c.IsTransformable && c.Tags.Contains(IntoTheSpireverseCardTags.Scale))).ToList<CardModel>();
         List<CardTransformation> transformations = new List<CardTransformation>();
         foreach (CardModel original in list)

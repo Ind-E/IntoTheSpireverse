@@ -42,7 +42,7 @@ public sealed class OnyxDrill : ShadowDefectCard
 	{
 		ArgumentNullException.ThrowIfNull(cardPlay.Target, "cardPlay.Target");
 		await DamageCmd.Attack(base.DynamicVars.CalculatedDamage).FromCardCompatibility(this, cardPlay).Targeting(cardPlay.Target)
-			.WithHitFx("vfx/vfx_attack_slash")
+			.WithHitFx(VfxCmd.slashPath)
 			.Execute(choiceContext);
 	}
 

@@ -30,7 +30,7 @@ public sealed class BoneStorm() : ShadowNecrobinderCard(3, CardType.Attack, Card
             .WithHitCount(2)
             .FromCardCompatibility(this, cardPlay)
             .TargetingAllOpponents(CombatState)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
     }
 

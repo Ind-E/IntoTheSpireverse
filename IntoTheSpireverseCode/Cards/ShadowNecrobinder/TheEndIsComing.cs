@@ -30,7 +30,7 @@ public sealed class TheEndIsComing() : ShadowNecrobinderCard(1, CardType.Attack,
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
                 .FromCardCompatibility(this, cardPlay)
                 .TargetingAllOpponents(CombatState)
-                .WithHitFx("vfx/vfx_giant_horizontal_slash")
+                .WithHitFx(VfxCmd.giantHorizontalSlashPath)
                 .Execute(choiceContext);
             await CardCmd.Exhaust(choiceContext, this);
         }

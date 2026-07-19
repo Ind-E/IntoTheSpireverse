@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Animation;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Commands;
@@ -34,7 +35,7 @@ public sealed class Starburst : ShadowDefectCard
 
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
-		await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
+		await CreatureCmd.TriggerAnim(base.Owner.Creature, CreatureAnimator.castTrigger, base.Owner.Character.CastAnimDelay);
 		if (base.IsUpgraded)
 			await OrbCmd.Channel<EntropyOrb>(choiceContext, base.Owner);
 		await PowerCmd.Apply<StarburstPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars.Cards.BaseValue, base.Owner.Creature, this);

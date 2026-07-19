@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using MegaCrit.Sts2.Core.Animation;
+using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -42,7 +43,7 @@ public sealed class Immobilize() : ShadowSilentCard(3, CardType.Skill, CardRarit
         NCombatRoom instance = NCombatRoom.Instance;
         if (instance != null)
             instance.CombatVfxContainer.AddChildSafely(child);
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger, Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<PoisonPower>(
             choiceContext, cardPlay.Target, DynamicVars.Poison.BaseValue, 
             Owner.Creature, this);

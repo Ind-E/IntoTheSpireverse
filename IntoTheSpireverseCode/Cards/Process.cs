@@ -1,3 +1,4 @@
+using MegaCrit.Sts2.Core.Animation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ public sealed class Process() : ShadowDefectCard(1, CardType.Skill, CardRarity.R
 	protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
 	{
 		if (CombatState == null) return;
-		await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
+		await CreatureCmd.TriggerAnim(base.Owner.Creature, CreatureAnimator.castTrigger, base.Owner.Character.CastAnimDelay);
 
 		List<CardModel> cards = PileType.Draw.GetPile(base.Owner).Cards.ToList();
 

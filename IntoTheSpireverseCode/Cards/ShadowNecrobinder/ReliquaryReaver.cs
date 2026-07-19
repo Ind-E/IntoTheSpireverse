@@ -32,7 +32,7 @@ public sealed class ReliquaryReaver() : ShadowNecrobinderCard(2, CardType.Attack
         AttackCommand attackCommand = await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
 
         if (!shouldTriggerFatal || !attackCommand.Results.Any(r => r.Any(dr => dr.WasTargetKilled)))

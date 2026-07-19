@@ -1,4 +1,5 @@
-﻿using BaseLib.Abstracts;
+﻿using MegaCrit.Sts2.Core.Animation;
+using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using IntoTheSpireverse.IntoTheSpireverseCode.Extensions;
 using MegaCrit.Sts2.Core.Commands;
@@ -34,7 +35,7 @@ public class PoweredPulse() : ShadowRegentCard(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast",
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger,
             Owner.Character.CastAnimDelay);
     }
 

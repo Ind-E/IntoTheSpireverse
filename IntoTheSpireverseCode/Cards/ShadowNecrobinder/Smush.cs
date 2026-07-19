@@ -25,7 +25,7 @@ public sealed class Smush() : ShadowNecrobinderCard(2, CardType.Attack, CardRari
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_attack_blunt")
+            .WithHitFx(VfxCmd.bluntPath)
             .Execute(choiceContext);
     }
 

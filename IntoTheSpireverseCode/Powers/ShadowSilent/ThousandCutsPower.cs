@@ -1,4 +1,5 @@
-﻿
+﻿using MegaCrit.Sts2.Core.Audio.Debug;
+
 using IntoTheSpireverse.IntoTheSpireverseCode.Cards.ShadowSilent;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;

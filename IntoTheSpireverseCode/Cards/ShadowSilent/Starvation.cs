@@ -34,7 +34,7 @@ public sealed class Starvation() : ShadowSilentCard(1, CardType.Attack, CardRari
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
                 .FromCardCompatibility(this, cardPlay)
                 .Targeting(cardPlay.Target)
-                .WithHitFx("vfx/vfx_attack_slash")
+                .WithHitFx(VfxCmd.slashPath)
                 .Execute(choiceContext);
             
             CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(CreateClone(), PileType.Draw, Owner, CardPilePosition.Random), 2.2f);

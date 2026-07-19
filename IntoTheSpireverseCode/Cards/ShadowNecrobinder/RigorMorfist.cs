@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using MegaCrit.Sts2.Core.Audio.Debug;
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -27,7 +28,7 @@ public sealed class RigorMorfist() : ShadowNecrobinderCard(1, CardType.Attack, C
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
             .FromCardCompatibility(this, cardPlay)
             .Targeting(cardPlay.Target)
-            .WithHitFx("vfx/vfx_molten_fist", tmpSfx: "blunt_attack.mp3")
+            .WithHitFx("vfx/vfx_molten_fist", tmpSfx: TmpSfx.bluntAttack)
             .Execute(choiceContext);
         var soulStrike = CombatState.CreateCard<SoulStrike>(Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(soulStrike, PileType.Draw, Owner, CardPilePosition.Random));

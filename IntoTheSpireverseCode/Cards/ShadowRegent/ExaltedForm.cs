@@ -1,4 +1,5 @@
-﻿using BaseLib.Abstracts;
+﻿using MegaCrit.Sts2.Core.Animation;
+using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -26,7 +27,7 @@ public class ExaltedForm() : ShadowRegentCard(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast",
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger,
             Owner.Character.CastAnimDelay);
         
         await PowerCmd.Apply<ExaltedFormPower>(

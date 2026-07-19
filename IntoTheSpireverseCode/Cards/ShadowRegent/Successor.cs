@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -27,7 +28,7 @@ public class Successor() : ShadowRegentCard(1, CardType.Skill, CardRarity.Rare, 
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast",
+        await CreatureCmd.TriggerAnim(Owner.Creature, CreatureAnimator.castTrigger,
             Owner.Character.CastAnimDelay);
 
         var fromHandCard = (await CardSelectCmd.FromHand(choiceContext, Owner,

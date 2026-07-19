@@ -23,7 +23,7 @@ public sealed class Grudge() : ShadowNecrobinderCard(1, CardType.Attack, CardRar
         await DamageCmd.Attack(DynamicVars.CalculatedDamage)
             .FromCardCompatibility(this, cardPlay)
             .TargetingAllOpponents(CombatState)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .Execute(choiceContext);
     }
 

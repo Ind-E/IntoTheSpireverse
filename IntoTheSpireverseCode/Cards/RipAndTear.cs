@@ -25,7 +25,7 @@ public sealed class RipAndTear() : ShadowDefectCard(2, CardType.Attack, CardRari
             .Attack(DynamicVars.Damage.BaseValue)
             .WithHitCount(3)
             .FromCardCompatibility(this, cardPlay)
-            .WithHitFx("vfx/vfx_attack_slash")
+            .WithHitFx(VfxCmd.slashPath)
             .TargetingRandomOpponents(CombatState)
             .Execute(choiceContext);
 
